@@ -9,7 +9,7 @@ def test_login(driver):
     login = LoginPage(driver)
     dashboard = DashboardPage(driver)
 
-    login.login("draj56403@gmail.com", "Ramesh@1#") #perform login
+    login.login("", "") #perform login
     dashboard.close_popup_if_present() #calls popup function if any popup present
     WebDriverWait(driver, 10).until(EC.url_contains("dashboard")) #wait until dashboard page load
 
@@ -20,7 +20,7 @@ def test_logout_btn(driver):
     login = LoginPage(driver)
     dashboard = DashboardPage(driver)
 
-    login.login("draj56403@gmail.com", "Ramesh@1#") #perform login
+    login.login("", "") #perform login
 
     dashboard.click_logout() #perform logout
     WebDriverWait(driver, 10).until(EC.url_contains("login")) #wait until login page load
@@ -31,7 +31,7 @@ def test_logout_btn(driver):
 def test_unsuccessful_login(driver):
 
     login = LoginPage(driver)
-    login.login("draj5640", "Rames") #enter wrong credentials
+    login.login("", "") #enter wrong credentials
 
     assert "*Incorrect email!" in driver.page_source #validates error message in the page
 
